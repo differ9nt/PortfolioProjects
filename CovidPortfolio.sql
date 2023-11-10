@@ -50,4 +50,17 @@ JOIN PortfolioProject..CovidVaccinations vaccin
 WHERE death.continent is not null
 ORDER BY 2,3
 
+-- CTE cases and death
+WITH CTE as (
+	SELECT location,date,population,total_cases,new_cases,total_deaths,new_deaths
+	FROM PortfolioProject..CovidDeaths
+	WHERE total_deaths is not null
+)
+SELECT *
+FROM CTE
+
+
+
+
+
 
